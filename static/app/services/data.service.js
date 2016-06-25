@@ -9,24 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var data_service_1 = require('./services/data.service');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Luigi';
+var mock_recipes_1 = require('app/data/mock-recipes');
+var DataService = (function () {
+    function DataService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'luigi-app',
-            templateUrl: './app/app.component.html',
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [
-                data_service_1.DataService
-            ]
-        }), 
+    DataService.prototype.getRecipes = function () {
+        return Promise.resolve(mock_recipes_1.RECIPES);
+    };
+    DataService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], DataService);
+    return DataService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.DataService = DataService;
+//# sourceMappingURL=data.service.js.map

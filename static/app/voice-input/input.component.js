@@ -9,24 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var data_service_1 = require('./services/data.service');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Luigi';
+var router_deprecated_1 = require('@angular/router-deprecated');
+var InputComponent = (function () {
+    function InputComponent() {
     }
-    AppComponent = __decorate([
+    InputComponent = __decorate([
         core_1.Component({
-            selector: 'luigi-app',
-            templateUrl: './app/app.component.html',
-            directives: [router_1.ROUTER_DIRECTIVES],
+            selector: 'voice-input',
+            templateUrl: './app/voice-input/input.component.html',
             providers: [
-                data_service_1.DataService
+                router_deprecated_1.ROUTER_PROVIDERS
             ]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], InputComponent);
+    return InputComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.InputComponent = InputComponent;
+//# sourceMappingURL=input.component.js.map
