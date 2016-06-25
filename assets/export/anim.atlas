@@ -1,0 +1,82 @@
+
+anim.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 2, 261
+  size: 543, 761
+  orig: 543, 761
+  offset: 0, 0
+  index: -1
+bow
+  rotate: false
+  xy: 347, 200
+  size: 211, 59
+  orig: 211, 59
+  offset: 0, 0
+  index: -1
+closed eyes
+  rotate: false
+  xy: 560, 213
+  size: 121, 46
+  orig: 121, 46
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 347, 88
+  size: 98, 110
+  orig: 98, 110
+  offset: 0, 0
+  index: -1
+lower arm
+  rotate: false
+  xy: 2, 32
+  size: 170, 227
+  orig: 170, 227
+  offset: 0, 0
+  index: -1
+mouth closed
+  rotate: false
+  xy: 347, 57
+  size: 27, 29
+  orig: 27, 29
+  offset: 0, 0
+  index: -1
+mouth open
+  rotate: true
+  xy: 2, 2
+  size: 28, 35
+  orig: 28, 35
+  offset: 0, 0
+  index: -1
+shoes
+  rotate: false
+  xy: 547, 261
+  size: 474, 761
+  orig: 474, 761
+  offset: 0, 0
+  index: -1
+upper arm
+  rotate: false
+  xy: 174, 33
+  size: 171, 226
+  orig: 171, 226
+  offset: 0, 0
+  index: -1
+
+anim2.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+head
+  rotate: false
+  xy: 2, 2
+  size: 328, 353
+  orig: 328, 353
+  offset: 0, 0
+  index: -1
