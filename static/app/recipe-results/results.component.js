@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var data_service_1 = require('../services/data.service');
 var ResultsComponent = (function () {
-    function ResultsComponent(dataService) {
+    function ResultsComponent(router, dataService) {
+        this.router = router;
         this.dataService = dataService;
     }
     ResultsComponent.prototype.getRecipes = function () {
@@ -21,13 +23,18 @@ var ResultsComponent = (function () {
     ResultsComponent.prototype.ngOnInit = function () {
         this.getRecipes();
     };
+    ResultsComponent.prototype.gotoDetail = function (recipe) {
+        console.log(recipe);
+        var link = ['recipe', { id: recipe.id }];
+        this.router.navigate(link);
+    };
     ResultsComponent = __decorate([
         core_1.Component({
             selector: 'recipe-results',
             templateUrl: './app/recipe-results/results.component.html',
             providers: [data_service_1.DataService]
         }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
+        __metadata('design:paramtypes', [router_1.Router, data_service_1.DataService])
     ], ResultsComponent);
     return ResultsComponent;
 }());

@@ -10,24 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var data_service_1 = require('../services/data.service');
+var router_1 = require('@angular/router');
 var RecipeComponent = (function () {
-    function RecipeComponent(dataService) {
+    function RecipeComponent(route, dataService) {
+        this.route = route;
         this.dataService = dataService;
     }
-    RecipeComponent.prototype.getRecipes = function () {
-        var _this = this;
-        this.dataService.getRecipes().then(function (recipes) { return _this.recipes = recipes; });
-    };
     RecipeComponent.prototype.ngOnInit = function () {
-        this.getRecipes();
+        // TODO: Get the id from the route
+        // let id = +this.route.params.('id');
+        //  this.dataService.getRecipe(id)
+        //    .then(recipe => this.recipe = recipe);
     };
     RecipeComponent = __decorate([
         core_1.Component({
-            selector: 'recipe-results',
+            selector: 'recipe-details',
             templateUrl: './app/recipe-details/recipe.component.html',
             providers: [data_service_1.DataService]
         }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, data_service_1.DataService])
     ], RecipeComponent);
     return RecipeComponent;
 }());

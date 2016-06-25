@@ -16,6 +16,10 @@ var DataService = (function () {
     DataService.prototype.getRecipes = function () {
         return Promise.resolve(mock_recipes_1.RECIPES);
     };
+    DataService.prototype.getRecipe = function (id) {
+        return this.getRecipes()
+            .then(function (recipes) { return recipes.filter(function (recipe) { return recipe.id === id; })[0]; });
+    };
     DataService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

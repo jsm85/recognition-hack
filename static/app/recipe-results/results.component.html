@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let recipe of recipes">
+    <li *ngFor="let recipe of recipes" (click)="gotoDetail(recipe)">
         <h3>{{ recipe.label }}</h3>
         <img src="{{ recipe.image }}" width="200" height="200" />
     </li>
