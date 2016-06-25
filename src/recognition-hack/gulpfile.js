@@ -5,7 +5,8 @@ var gulp = require("gulp"),
     rimraf = require("rimraf"),
     concat = require("gulp-concat"),
     cssmin = require("gulp-cssmin"),
-    uglify = require("gulp-uglify");
+    uglify = require("gulp-uglify"),
+    ts = require('gulp-typescript');
 
 var webroot = "./wwwroot/";
 
@@ -40,6 +41,38 @@ gulp.task("min:css", function () {
         .pipe(concat(paths.concatCssDest))
         .pipe(cssmin())
         .pipe(gulp.dest("."));
+});
+
+gulp.task("scripts", () => {
+    gulp.src([
+            'es6-shim/es6-shim.min.js',
+            'systemjs/dist/system-polyfills.js',
+            'systemjs/dist/system.src.js',
+            'reflect-metadata/Reflect.js',
+            'core-js/client/core.js',
+            'core-js/client/shim.min.js',
+            'rxjs/**',
+            'zone.js/dist/**',
+            '@angular/**'
+    ], {
+        cwd: "node_modules/**"
+    })
+        .pipe(gulp.dest("./wwwroot/libs"));
+});
+
+var tsProject = ts.createProject('tsconfig.json');
+gulp.task('ts', function (done) {
+    var tsResult = gulp.src([
+            "./wwwroot/app/*.ts"
+    ])
+        .pipe(ts(tsProject), undefined, ts.reporter.fullReporter());
+    return tsResult.js.pipe(gulp.dest('./wwwroot/js'));
+});
+
+gulp.task('watch', ['watch.ts']);
+
+gulp.task('watch.ts', ['ts'], function () {
+    return gulp.watch('./wwwroot/app/*.ts', ['ts']);
 });
 
 gulp.task("min", ["min:js", "min:css"]);
