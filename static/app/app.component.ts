@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core';
 @Component({
-    selector: 'my-app',
-    template: '<h1>My First Angular 4 App</h1>'
+    selector: 'voice-input',
+    templateUrl: 'app/app.component.html'
 })
 export class AppComponent { }   
