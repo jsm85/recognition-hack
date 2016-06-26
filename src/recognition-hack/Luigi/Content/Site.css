@@ -47,12 +47,16 @@ input.mic {
     box-shadow: 0px 0px 29px #09f;
 }
 
+#loader {
+    position: absolute;
+    left: calc(50% - 75px);
+}
+
 #analyser {
     width: 100px;
-    height: 20px;
+    height: 40px;
     border: 0;
-    position: relative;
-    top: 20px;
+    top: calc(100% - 30px);
     left: calc(50% - 50px);
 }
 
