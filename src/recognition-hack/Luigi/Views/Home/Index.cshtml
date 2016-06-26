@@ -3,51 +3,55 @@
 }
 
 <script type="text/javascript">
-    $(function () {
-        $("#ClickImage").click(function () {
+    $(function() {
+        $("#ClickImage").click(function() {
             $.ajax({
                 url: "/Home/Speak",
                 type: "GET",
-            error: function (response) {
-                console.log(response);
-            },
-            success: function (response) {
-                console.log(response);
-            }
+                error: function(response) {
+                    console.log(response);
+                },
+                success: function(response) {
+                    console.log(response);
+                }
+            });
         });
-        });
-    })
-
-var id = "luigi";    
-var renderer = PIXI.autoDetectRenderer(400, 600, {transparent: true});
-$('#' + id).append(renderer.view);
-
-var stage = new PIXI.Container();
-var spine = null;
-          
-PIXI.loader
-    .add(id, 'Assets/anim.json')
-    .load(function (loader, res) {
-        // create a spine boy
-        spine = new PIXI.Spine("Assets/anim.json");
-
-        // set the position
-        spine.position.x = 200;
-        spine.position.y = 600;
-
-        spine.scale.set(1);
-        
-        // play animation
-        spine.state.setAnimationByName("idle", true);
-
-        stage.addChild(spine);
     });
 
-stage.interactive = true;
+    var id = "luigi";
+    var renderer = PIXI.autoDetectRenderer(200, 300, { transparent: true });
+    $("#" + id).append(renderer.view);
 
-requestAnimationFrame(function () {    
-    renderer.render(stage);
-});
+    var stage = new PIXI.Container();
+    var spine = null;
+
+
+    PIXI.loader
+        .add(id, '/Assets/anim.json')
+        .load(function(loader, res) {
+
+            // create a spine boy
+            spine = new PIXI.spine.Spine(res.luigi.spineData);
+
+            // set the position
+            spine.position.x = 10;
+            spine.position.y = 10;
+
+            spine.scale.set(0.5);
+
+            // play animation
+            spine.state.setAnimationByName(0, "idle", true);
+
+            stage.addChild(spine);
+        });
+
+    stage.interactive = true;
+    animate();
+
+    function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(stage);
+    }
 
 </script>
 
