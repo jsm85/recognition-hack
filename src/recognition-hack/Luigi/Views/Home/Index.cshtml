@@ -2,8 +2,26 @@
     ViewBag.Title = "Home Page";
 }
 
-<img src="~/Assets/luigi-chef.png"/>
+<script type="text/javascript">
+    $(function () {
+        $("#ClickImage").click(function () {
+            $.ajax({
+                url: "/Home/Speak",
+                type: "GET",
+            error: function (response) {
+                    alert(response);
+            },
+            success: function (response) {
+                alert(response);
+            }
+        });
+        });
+    })
+</script>
 
-<input type="button" value="Create" onclick="location.href='@Url.Action("Index", "Recipes")'" />
+<img class="luigi" src="~/Assets/luigi-chef.png" id="ClickImage"/>
 
-<input type="button" value="Speak" onclick="location.href='@Url.Action("Speak", "Home")'" />
+<div class="centre-button">
+    <input type="button" value="Create" onclick="location.href = '@Url.Action("Index", "Recipes")'" />
+</div>
+

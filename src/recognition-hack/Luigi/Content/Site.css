@@ -23,3 +23,12 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.luigi {
+    width: 100%;
+}
+
+.centre-button {
+    text-align: center;
+}
