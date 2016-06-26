@@ -39,6 +39,14 @@
         requestAnimationFrame(animate);
         renderer.render(stage);
     }
+    
+    function talk() {
+        spine.state.setAnimationByName(0, "talk", true);
+    }
+    
+    function stop() {
+        spine.state.setAnimationByName(0, "idle", true);
+    }
 
 </script>
 
