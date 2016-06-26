@@ -7,14 +7,17 @@
 
 <h2>Recipes</h2>
 
-
 @foreach (var item in Model)
 {
-    <div class="thumbnail">
-        <img src="@item.Thumbnail" alt="@item.Title">
-        <div class="caption">
-            <p>@item.Title</p>
+    <div class="panel panel-default bootcards-richtext">
+        <div class="panel-heading">
+            <h3 class="panel-title">@item.Title</h3>
+        </div>
+        <div class="panel-body center">
+            <img src="@item.Thumbnail" alt="@item.Title">
         </div>
     </div>
     <br/>
 }
+
+

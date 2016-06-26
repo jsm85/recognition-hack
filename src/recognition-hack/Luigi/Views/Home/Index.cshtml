@@ -17,14 +17,52 @@
         });
         });
     })
+
+var id = "luigi";    
+var renderer = PIXI.autoDetectRenderer(400, 600, {transparent: true});
+$('#' + id).append(renderer.view);
+
+var stage = new PIXI.Container();
+var spine = null;
+          
+PIXI.loader
+    .add(id, 'Assets/anim.json')
+    .load(function (loader, res) {
+        // create a spine boy
+        spine = new PIXI.Spine("Assets/anim.json");
+
+        // set the position
+        spine.position.x = 200;
+        spine.position.y = 600;
+
+        spine.scale.set(1);
+        
+        // play animation
+        spine.state.setAnimationByName("idle", true);
+
+        stage.addChild(spine);
+    });
+
+stage.interactive = true;
+
+requestAnimationFrame(function () {    
+    renderer.render(stage);
+});
+
 </script>
 
-<img class="img-responsive" src="~/Assets/luigi-chef.png" id="ClickImage"/>
+<!--img class="img-responsive" src="~/Assets/luigi-chef.png" id="ClickImage"/-->
+
+<div id="luigi"></div>
+
+
+<input class="mic" type="button" onclick="toggleRecording(this);" />
 
 <div class="centre-button">
     <canvas id="analyser" width="100" height="50"></canvas>
     <canvas id="wavedisplay" width="400" height="150"></canvas>
-    <input id="record" type="button" value="Get recipes" onclick="toggleRecording(this);" />
+    <input id="record" type="button" value="Get recipes"  />
     <a id="save" href="#">save</a>
 </div>
+
 

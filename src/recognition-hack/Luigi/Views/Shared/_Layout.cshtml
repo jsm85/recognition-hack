@@ -7,22 +7,15 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-
-    <style>
-	
-    </style>
+    
+    <script type="text/javascript" src="~/Scripts/pixi.js"></script>
+    <script type="text/javascript" src="~/Scripts/pixi-spine.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-custom navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                
-                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                    <img class="logo" src="~/Assets/logo-small.png">
-                </a>
-            </div>
-        </div>
-    </div>
+    
+    <img class="logo" src="~/Assets/logo-small.png">
+    <img class="hamburger" src="~/Assets/hamburger.png">
+    
     <div class="container body-content">
         @RenderBody()
         

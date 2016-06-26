@@ -18,7 +18,7 @@ namespace Luigi.Controllers
 
         public void Speak()
         {
-            TextToSpeechService.Speak("BUONGIORNO, my name is Luigi, your personal chef. What ingredients do you have in your kitchen?");
+            TextToSpeechService.Speak("BUONGIORNO, my name is Luigi, your personal chef. Whata ingredients do you have in your kitchen?");
         }
 
 
