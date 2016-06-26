@@ -78,14 +78,14 @@ function toggleRecording(e) {
         // stop recording
         console.log('stop');
         audioRecorder.stop();
-        e.classList.remove("recording");
+        e.classList.remove("on");
         audioRecorder.getBuffers(gotBuffers);
     } else {
         // start recording
         console.log('start');
         if (!audioRecorder)
             return;
-        e.classList.add("recording");
+        e.classList.add("on");
         audioRecorder.clear();
         audioRecorder.record();
     }
