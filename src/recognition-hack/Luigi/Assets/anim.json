@@ -1,0 +1,169 @@
+{
+"skeleton": { "hash": "F9M4SiRU3/9BujDZOydNXwpKlZU", "spine": "3.1.05", "width": 543, "height": 761, "images": "./images/" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone-torso", "parent": "root", "length": 146.19, "x": 527.53, "y": 415.06, "rotation": 90 },
+	{ "name": "bone-lower arm", "parent": "bone-torso", "length": 129.32, "x": 65.35, "y": 122.12, "rotation": 76.1 },
+	{ "name": "bone-upper arm", "parent": "bone-lower arm", "length": 87.65, "x": 120.54, "y": -7.38, "rotation": -92.04 },
+	{ "name": "bone-hand", "parent": "bone-upper arm", "length": 81.35, "x": 93.79, "y": 3.51, "rotation": 2.48 },
+	{ "name": "bone-head", "parent": "bone-torso", "length": 163.4, "x": 132.43, "rotation": -0.6 },
+	{ "name": "bone-shoes", "parent": "root", "length": 210.09, "x": 513.77, "y": 206.94, "rotation": 87.18 }
+],
+"slots": [
+	{ "name": "upper arm", "bone": "bone-upper arm", "attachment": "upper arm" },
+	{ "name": "lower arm", "bone": "bone-lower arm", "attachment": "lower arm" },
+	{ "name": "hand", "bone": "bone-hand", "attachment": "hand" },
+	{ "name": "shoes", "bone": "bone-shoes", "attachment": "shoes" },
+	{ "name": "body", "bone": "bone-torso", "attachment": "body" },
+	{ "name": "head", "bone": "bone-head", "attachment": "head" },
+	{ "name": "bow", "bone": "bone-torso", "attachment": "bow" },
+	{ "name": "closed eyes", "bone": "bone-head", "attachment": "closed eyes" },
+	{ "name": "mouth closed", "bone": "bone-head", "attachment": "mouth closed" },
+	{ "name": "mouth open", "bone": "bone-head" }
+],
+"skins": {
+	"default": {
+		"body": {
+			"body": { "x": 87.43, "y": 26.03, "rotation": -90, "width": 543, "height": 761 }
+		},
+		"bow": {
+			"bow": { "x": 101.43, "y": 11.03, "rotation": -90, "width": 211, "height": 59 }
+		},
+		"closed eyes": {
+			"closed eyes": { "x": 89.47, "y": 2.94, "rotation": -89.41, "width": 121, "height": 46 }
+		},
+		"hand": {
+			"hand": { "x": 41.35, "y": -3.94, "rotation": -76.5, "width": 98, "height": 110 }
+		},
+		"head": {
+			"head": { "x": 151.03, "y": -2.92, "rotation": -89.41, "width": 328, "height": 353 }
+		},
+		"lower arm": {
+			"lower arm": { "x": 89.3, "y": -55.24, "rotation": -166.06, "width": 170, "height": 227 }
+		},
+		"mouth closed": {
+			"mouth closed": { "x": 20.01, "y": -1.75, "rotation": -89.41, "width": 27, "height": 29 }
+		},
+		"mouth open": {
+			"mouth open": { "x": 23.01, "y": -1.22, "rotation": -89.41, "width": 28, "height": 35 }
+		},
+		"shoes": {
+			"shoes": { "x": 292.89, "y": 61.28, "rotation": -87.17, "width": 474, "height": 761 }
+		},
+		"upper arm": {
+			"upper arm": { "x": 49.28, "y": -28.9, "rotation": -74.01, "width": 171, "height": 226 }
+		}
+	}
+},
+"animations": {
+	"idle": {
+		"slots": {
+			"closed eyes": {
+				"attachment": [
+					{ "time": 3.3333, "name": null },
+					{ "time": 3.7, "name": "closed eyes" }
+				]
+			},
+			"mouth open": {
+				"attachment": [
+					{ "time": 3.7, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"bone-torso": {
+				"rotate": [
+					{ "time": 0, "angle": 2.2 },
+					{ "time": 1.3333, "angle": -0.26 },
+					{ "time": 2.6666, "angle": -3.17 },
+					{ "time": 4, "angle": -0.26 },
+					{ "time": 5.3333, "angle": 2.2 }
+				],
+				"translate": [
+					{ "time": 0, "x": 0, "y": -3.44 },
+					{ "time": 1.3333, "x": 5.15, "y": -3.44 },
+					{ "time": 2.6666, "x": -0.03, "y": -3.44 },
+					{ "time": 4, "x": 5.15, "y": -3.44 },
+					{ "time": 5.3333, "x": 0, "y": -3.44 }
+				],
+				"scale": [
+					{ "time": 0, "x": 0.961, "y": 1 },
+					{ "time": 1.3333, "x": 1.029, "y": 0.963 },
+					{ "time": 2.6666, "x": 0.962, "y": 1 },
+					{ "time": 4, "x": 1.029, "y": 0.963 },
+					{ "time": 5.3333, "x": 0.961, "y": 1 }
+				]
+			},
+			"bone-lower arm": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 1.3333, "angle": 9.13 },
+					{ "time": 2.6666, "angle": -2.81 },
+					{ "time": 4, "angle": 4.5 },
+					{ "time": 5.3333, "angle": 0 }
+				]
+			},
+			"bone-upper arm": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 1.3333, "angle": 5.85 },
+					{ "time": 2.6666, "angle": 7.64 },
+					{ "time": 4, "angle": -1.19 },
+					{ "time": 5.3333, "angle": 0 }
+				]
+			},
+			"bone-hand": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 1.3333, "angle": 9.65 },
+					{ "time": 2.6333, "angle": -11.38 },
+					{ "time": 4, "angle": -20.07 },
+					{ "time": 5.3333, "angle": 0 }
+				]
+			}
+		}
+	},
+	"talk": {
+		"slots": {
+			"mouth open": {
+				"attachment": [
+					{ "time": 0, "name": "mouth open" },
+					{ "time": 0.3333, "name": null },
+					{ "time": 0.6666, "name": "mouth open" },
+					{ "time": 1, "name": null },
+					{ "time": 1.3333, "name": "mouth open" },
+					{ "time": 1.6666, "name": null },
+					{ "time": 2, "name": "mouth open" },
+					{ "time": 2.3333, "name": null },
+					{ "time": 2.5333, "name": "mouth open" }
+				]
+			}
+		},
+		"bones": {
+			"bone-torso": {
+				"scale": [
+					{ "time": 0, "x": 1, "y": 1 },
+					{ "time": 1, "x": 0.965, "y": 1 },
+					{ "time": 2, "x": 1, "y": 1 }
+				]
+			},
+			"bone-head": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 0.5333, "angle": 4.79 },
+					{ "time": 1.3, "angle": 0 },
+					{ "time": 2, "angle": -5.82 },
+					{ "time": 2.5333, "angle": 0 }
+				],
+				"translate": [
+					{ "time": 0, "x": 0, "y": 1.71 },
+					{ "time": 0.5333, "x": -3.48, "y": 0 },
+					{ "time": 1.3, "x": -1.63, "y": 0 },
+					{ "time": 2, "x": 0, "y": 0 },
+					{ "time": 2.5333, "x": 0, "y": 0 }
+				]
+			}
+		}
+	}
+}
+}

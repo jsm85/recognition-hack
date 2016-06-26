@@ -3,6 +3,33 @@
     padding-bottom: 20px;
     background-color: #00365F;
     color: white;
+    position: relative;
+    background: linear-gradient(to bottom, #00426c 0%,#00143b 100%);
+}
+
+img.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 45px;
+}
+
+img.hamburger {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 45px;
+}
+
+input.mic {
+    width: 100px;
+    height: 100px;
+    background: url('Assets/microphone.png');
+    border: 0;
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -38,8 +65,4 @@ textarea {
     background-color:#033052;
     color:#ffffff;
     border-radius:0;
-}
-
-.logo {
-    height: 45px;
 }
