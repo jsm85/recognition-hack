@@ -25,6 +25,12 @@ namespace Luigi.Controllers
 
             var output = RecipeLookupService.Query(items);
 
+            var topOne = output.Results.First().Title;
+
+            var reply = string.Format("There are many options but aye recommend {0}", topOne);
+
+            TextToSpeechService.Speak(reply);
+
             return View(output.Results);
         }
 
