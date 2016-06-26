@@ -50,13 +50,14 @@ input.mic {
 #loader {
     position: absolute;
     left: calc(50% - 75px);
+    top: 464px;
 }
 
 #analyser {
     width: 100px;
     height: 40px;
     border: 0;
-    top: calc(100% - 30px);
+    top: calc(100% - 20px);
     left: calc(50% - 50px);
 }
 
