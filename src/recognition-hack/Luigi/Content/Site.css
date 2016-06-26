@@ -3,7 +3,8 @@
 }
 
 body {
-    height: 100%;
+    width: 93%;
+    height: 94%;
     padding-top: 80px;
     padding-bottom: 20px;
     background-color: #00365F;
@@ -37,8 +38,10 @@ input.mic {
     background-size: cover;
 }
 
-#luigi {
-    border: 1px solid red;
+canvas {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 200px);
 }
 
 textarea:focus, input:focus{

@@ -19,8 +19,9 @@
     });
 
     var id = "luigi";
-    var renderer = PIXI.autoDetectRenderer(200, 300, { transparent: true });
-    $("#" + id).append(renderer.view);
+    var renderer = PIXI.autoDetectRenderer(400, 500, { transparent: true });
+    //$("#" + id).append(renderer.view);
+    document.body.appendChild(renderer.view);
 
     var stage = new PIXI.Container();
     var spine = null;
@@ -34,10 +35,10 @@
             spine = new PIXI.spine.Spine(res.luigi.spineData);
 
             // set the position
-            spine.position.x = 10;
-            spine.position.y = 10;
+            spine.position.x = -110;
+            spine.position.y = 560;
 
-            spine.scale.set(0.5);
+            spine.scale.set(0.6);
 
             // play animation
             spine.state.setAnimationByName(0, "idle", true);
