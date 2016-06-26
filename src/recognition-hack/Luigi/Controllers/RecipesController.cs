@@ -15,25 +15,30 @@ namespace Luigi.Controllers
         // GET: Recipes
         public ActionResult Index()
         {
-            //var binDirectoryPath = Server.MapPath("~/bin");
-            //var wavFileLocation = string.Format(@"{0}\Assets\AudioFile.wav", binDirectoryPath);
+            if(TempData["RecipeResults"] != null)
+            {
+                var model = TempData["RecipeResults"] as List<RecipeResult>;
+                return View(model);
+            }
 
-            //var response = SpeechToTextService.Interupt(wavFileLocation);
-            //var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-            //var result = serializer.Deserialize<CogResponse>(response);
+            var binDirectoryPath = Server.MapPath("~/bin");
+            var wavFileLocation = string.Format(@"{0}\Assets\AudioFile.wav", binDirectoryPath);
 
-            // var items = result.Results.First().Lexical.Split(' ').ToList();
+            var response = SpeechToTextService.Interupt(wavFileLocation);
+            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            var result = serializer.Deserialize<CogResponse>(response);
 
-            // var output = RecipeLookupService.Query(items);
+            var items = result.Results.First().Lexical.Split(' ').ToList();
 
-            //var topOne = output.Results.First().Title;
+            var output = RecipeLookupService.Query(items);
 
-            //var reply = string.Format("There are many options but aye recommend {0}", topOne);
+            var topOne = output.Results.First().Title;
 
-            //TextToSpeechService.Speak(reply);
-            var model = TempData["RecipeResults"] as List<RecipeResult>;
+            var reply = string.Format("There are many options but aye recommend {0}", topOne);
 
-            return View(model);
+            TextToSpeechService.Speak(reply);
+            return View(output.Results);
+
         }
 
         [HttpPost]
@@ -66,7 +71,17 @@ namespace Luigi.Controllers
                 return null;
             }
 
-            var items = result.Results.First().Lexical.Split(' ').ToList();
+            var items = new List<string>();
+
+            if(result.Results.First().Lexical.Contains(' '))
+            {
+                items = result.Results.First().Lexical.Split(' ').ToList();
+            }
+            else
+            {
+                items.Add(result.Results.First().Lexical);
+            }
+            
 
             var output = RecipeLookupService.Query(items);
 
@@ -83,7 +98,8 @@ namespace Luigi.Controllers
             if(output.Results.Count > 0)
             {
                 TempData["RecipeResults"] = output.Results;
-                return RedirectToAction("Index");
+                return Json("success");
+                //return RedirectToActionPermanent("Index");
             }
             
             return Json("error");

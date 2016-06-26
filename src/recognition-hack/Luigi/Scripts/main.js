@@ -66,8 +66,11 @@ function doneEncoding(blob) {
     formData.append(fileType + '-blob', blob);
     document.getElementById('loader').classList.remove('hidden');
     xhr('Recipes/PostRecordedAudioVideo', formData, function (fName) {
-        console.log(fName);
         document.getElementById('loader').classList.add('hidden');
+        if (fName == '"success"') {
+            location.href = "/recipes";
+        }
+        
     });
     //Recorder.setupDownload(blob, "myRecording" + ((recIndex < 10) ? "0" : "") + recIndex + ".wav");
     recIndex++;
