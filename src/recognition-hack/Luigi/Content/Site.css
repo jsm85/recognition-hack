@@ -1,7 +1,8 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 80px;
     padding-bottom: 20px;
     background-color: #00365F;
+    color: white;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -31,4 +32,14 @@ textarea {
 
 .centre-button {
     text-align: center;
+}
+
+.navbar-custom {
+    background-color:#033052;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.logo {
+    height: 45px;
 }

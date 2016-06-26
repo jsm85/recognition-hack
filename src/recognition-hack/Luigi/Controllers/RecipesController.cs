@@ -34,9 +34,5 @@ namespace Luigi.Controllers
             return View(output.Results);
         }
 
-        public ActionResult Details(int id)
-        {
-            return View(new Recipe());
-        }
     }
 }

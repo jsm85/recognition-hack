@@ -9,19 +9,19 @@
                 url: "/Home/Speak",
                 type: "GET",
             error: function (response) {
-                    alert(response);
+                console.log(response);
             },
             success: function (response) {
-                alert(response);
+                console.log(response);
             }
         });
         });
     })
 </script>
 
-<img class="luigi" src="~/Assets/luigi-chef.png" id="ClickImage"/>
+<img class="img-responsive" src="~/Assets/luigi-chef.png" id="ClickImage"/>
 
 <div class="centre-button">
-    <input type="button" value="Create" onclick="location.href = '@Url.Action("Index", "Recipes")'" />
+    <input type="button" value="Get recipes" onclick="location.href = '@Url.Action("Index", "Recipes")'" />
 </div>
 
