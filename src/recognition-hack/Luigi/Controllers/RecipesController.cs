@@ -13,7 +13,7 @@ namespace Luigi.Controllers
     {
         
         // GET: Recipes
-        public ActionResult Index(List<RecipeResult> results)
+        public ActionResult Index()
         {
             //var binDirectoryPath = Server.MapPath("~/bin");
             //var wavFileLocation = string.Format(@"{0}\Assets\AudioFile.wav", binDirectoryPath);
@@ -22,17 +22,18 @@ namespace Luigi.Controllers
             //var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
             //var result = serializer.Deserialize<CogResponse>(response);
 
-           // var items = result.Results.First().Lexical.Split(' ').ToList();
+            // var items = result.Results.First().Lexical.Split(' ').ToList();
 
-           // var output = RecipeLookupService.Query(items);
+            // var output = RecipeLookupService.Query(items);
 
             //var topOne = output.Results.First().Title;
 
             //var reply = string.Format("There are many options but aye recommend {0}", topOne);
 
             //TextToSpeechService.Speak(reply);
+            var model = TempData["RecipeResults"] as List<RecipeResult>;
 
-            return View(results);
+            return View(model);
         }
 
         [HttpPost]
@@ -81,7 +82,8 @@ namespace Luigi.Controllers
 
             if(output.Results.Count > 0)
             {
-                return RedirectToAction("Index", output.Results);
+                TempData["RecipeResults"] = output.Results;
+                return RedirectToAction("Index");
             }
             
             return Json("error");

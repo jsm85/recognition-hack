@@ -38,6 +38,10 @@ input.mic {
     background-size: cover;
 }
 
+.on {
+    box-shadow: 0px 0px 29px #09f;
+}
+
 #analyser {
     width: 100px;
     height: 20px;
