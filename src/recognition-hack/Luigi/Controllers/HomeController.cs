@@ -4,6 +4,7 @@ using System.Net;
 using System.Web.Mvc;
 using Luigi.Authentication;
 using Luigi.Models;
+using Luigi.Services;
 
 
 namespace Luigi.Controllers
@@ -13,6 +14,11 @@ namespace Luigi.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public void Speak()
+        {
+            TextToSpeechService.Speak();
         }
     }
 }

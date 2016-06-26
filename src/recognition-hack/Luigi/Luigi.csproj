@@ -153,6 +153,8 @@
     <Compile Include="Services\RecipeLookupService.cs" />
     <Compile Include="Models\RecipeResponse.cs" />
     <Compile Include="Models\RecipeResult.cs" />
+    <Compile Include="Services\test.cs" />
+    <Compile Include="Services\TextToSpeechService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AudioFile.wav">
