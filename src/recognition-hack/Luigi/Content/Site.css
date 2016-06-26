@@ -1,4 +1,10 @@
-﻿body {
+﻿html {
+    height: 100%;
+}
+
+body {
+    width: 93%;
+    height: 94%;
     padding-top: 80px;
     padding-bottom: 20px;
     background-color: #00365F;
@@ -18,17 +24,24 @@ img.hamburger {
     position: absolute;
     top: 20px;
     right: 20px;
-    height: 45px;
+    height: 35px;
 }
 
 input.mic {
     width: 100px;
     height: 100px;
-    background: url('Assets/microphone.png');
+    background: url('../Assets/microphone.png');
     border: 0;
     position: absolute;
     bottom: 30px;
-    left: calc(50% -50px);
+    left: calc(50% - 50px);
+    background-size: cover;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 200px);
 }
 
 textarea:focus, input:focus{
@@ -37,6 +50,7 @@ textarea:focus, input:focus{
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    height: 100%;
     padding-left: 15px;
     padding-right: 15px;
 }
