@@ -38,7 +38,7 @@ function drawBuffer(width, height, context, data) {
 
 (function (window) {
 
-    var WORKER_PATH = 'scripts/recorderWorker.js';
+    var WORKER_PATH = '/scripts/recorderWorker.js';
 
     var Recorder = function (source, cfg) {
         var config = cfg || {};

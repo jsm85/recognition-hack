@@ -49,8 +49,8 @@ function gotBuffers(buffers) {
 function xhr(url, data, callback) {
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-        if (request.readyState == 4 && request.status == 200) {
-            callback(location.href + request.responseText);
+        if (request.readyState == 4) {
+            callback(request.responseText);
         }
     };
     request.open('POST', url);
@@ -64,9 +64,10 @@ function doneEncoding(blob) {
     var formData = new FormData();
     formData.append(fileType + '-filename', fileName);
     formData.append(fileType + '-blob', blob);
-
+    document.getElementById('loader').classList.remove('hidden');
     xhr('Recipes/PostRecordedAudioVideo', formData, function (fName) {
         console.log(fName);
+        document.getElementById('loader').classList.add('hidden');
     });
     //Recorder.setupDownload(blob, "myRecording" + ((recIndex < 10) ? "0" : "") + recIndex + ".wav");
     recIndex++;

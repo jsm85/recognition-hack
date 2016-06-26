@@ -13,31 +13,32 @@ namespace Luigi.Controllers
     {
         
         // GET: Recipes
-        public ActionResult Index()
+        public ActionResult Index(List<RecipeResult> results)
         {
-            var binDirectoryPath = Server.MapPath("~/bin");
-            var wavFileLocation = string.Format(@"{0}\Assets\AudioFile.wav", binDirectoryPath);
+            //var binDirectoryPath = Server.MapPath("~/bin");
+            //var wavFileLocation = string.Format(@"{0}\Assets\AudioFile.wav", binDirectoryPath);
 
-            var response = SpeechToTextService.Interupt(wavFileLocation);
-            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-            var result = serializer.Deserialize<CogResponse>(response);
+            //var response = SpeechToTextService.Interupt(wavFileLocation);
+            //var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            //var result = serializer.Deserialize<CogResponse>(response);
 
-            var items = result.Results.First().Lexical.Split(' ').ToList();
+           // var items = result.Results.First().Lexical.Split(' ').ToList();
 
-            var output = RecipeLookupService.Query(items);
+           // var output = RecipeLookupService.Query(items);
 
-            var topOne = output.Results.First().Title;
+            //var topOne = output.Results.First().Title;
 
-            var reply = string.Format("There are many options but aye recommend {0}", topOne);
+            //var reply = string.Format("There are many options but aye recommend {0}", topOne);
 
-            TextToSpeechService.Speak(reply);
+            //TextToSpeechService.Speak(reply);
 
-            return View(output.Results);
+            return View(results);
         }
 
         [HttpPost]
         public ActionResult PostRecordedAudioVideo()
         {
+            var reply = "Sorry, I didn't catcha that";
             var path = AppDomain.CurrentDomain.BaseDirectory + @"uploads\";
 
             foreach (string upload in Request.Files)
@@ -52,19 +53,38 @@ namespace Luigi.Controllers
 
             var response = SpeechToTextService.Interupt(wavFileLocation);
             var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-            var result = serializer.Deserialize<CogResponse>(response);
+            CogResponse result;
+
+            try
+            {
+                result = serializer.Deserialize<CogResponse>(response);
+            }
+            catch(Exception e)
+            {
+                TextToSpeechService.Speak(reply);
+                return null;
+            }
 
             var items = result.Results.First().Lexical.Split(' ').ToList();
 
             var output = RecipeLookupService.Query(items);
 
-            var topOne = output.Results.First().Title;
+            reply = $"Sorry, aye cannot work with these ingredients!; what is a {items.FirstOrDefault()}?";
 
-            var reply = string.Format("There are many options but aye recommend {0}", topOne);
+            if (output.Results.Count > 0)
+            {
+                var topOne = output.Results.First().Title;
+                reply = string.Format("There are many options but aye recommend {0}", topOne);
+            }
 
             TextToSpeechService.Speak(reply);
 
-            return View(output.Results);
+            if(output.Results.Count > 0)
+            {
+                return RedirectToAction("Index", output.Results);
+            }
+            
+            return Json("error");
         }
 
     }
