@@ -26,6 +26,9 @@ input.mic {
     height: 100px;
     background: url('Assets/microphone.png');
     border: 0;
+    position: absolute;
+    bottom: 30px;
+    left: calc(50% -50px);
 }
 
 textarea:focus, input:focus{
