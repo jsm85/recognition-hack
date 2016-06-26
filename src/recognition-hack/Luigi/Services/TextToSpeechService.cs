@@ -40,7 +40,7 @@ namespace Luigi.Services
             Console.WriteLine("Unable to complete the TTS request: [{0}]", e.ToString());
         }
 
-        public static void Speak()
+        public static void Speak(string text)
         {
             Console.WriteLine("Starting Authtentication");
             AccessTokenInfo token;
@@ -69,7 +69,7 @@ namespace Luigi.Services
             {
                 RequestUri = new Uri(requestUri),
                 // Text to be spoken.
-                Text = "BUONGIORNO, my name is Luigi, your personal chef. What ingredients do you have in your kitchen?",
+                Text = text,
                 VoiceType = Gender.Male,
                 // Refer to the documentation for complete list of supported locales.
                 Locale = "it-IT",
