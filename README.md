@@ -1,9 +1,16 @@
-# recognition-hack
+# Microsoft Azure Re:Cognition Hackathon
 
-## build
+This is the repo for a Microsoft Hackathon to explore Azure AI services.
 
-1. npm install
-2. gulp scripts
-3. npm run tsc
+This hack won a prize 🥉
 
-to watch: npm run tsc:w
+### Idea
+
+A friendly cooking AI companion to help you with recipes based on ingredients you have in your fridge. It also use's voice for interaction.
+
+https://youtu.be/awshmkzsxHM
+
+### Technology Used
+
+* Asp.Net
+* Azure AI
